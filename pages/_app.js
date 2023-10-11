@@ -17,8 +17,6 @@ const { chains, provider } = configureChains(
   ]
 );
 
-console.log(process.env.NEXT_PUBLIC_ALCHEMY_ID)
-
 const { connectors } = getDefaultWallets({
   appName: 'RadTrack',
   chains
