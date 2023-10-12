@@ -32,7 +32,7 @@ export default function TokenData() {
         <div className="flex flex-col items-center justify-center w-64">
           <input
             type="text" 
-            placeholder="Enter Token ID" 
+            placeholder="Enter Patient ID" 
             value={_tokenID} 
             onChange={handleTokenIDChange} 
             className="my-4 text-center text-black p-2" 
