@@ -23,7 +23,7 @@ export default function TokenMint(props) {
       address: _contractAddress,
       abi: ABI,
       functionName: 'addDoseRecord',
-      args: [props.patientId, props.patientDose],
+      args: [props.patientId, props.exam, props.patientDose, props.time],
       overrides: {
         value: ethers.utils.parseEther(String(_price)),
       },

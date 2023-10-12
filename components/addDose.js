@@ -11,6 +11,8 @@ export default function TokenData() {
   const { address, isConnected } = useAccount();
   const [ _patientId, set_patientId ] = useState('');
   const [ _dose, set_dose ] = useState('');
+  const [ _exam, set_exam ] = useState('');
+  const [ _time, set_time ] = useState('');
   const [ showRead, setShowRead ] = useState(false); // added state for controlling display of Read component
 
   // A function to handle the tokenID input change
@@ -18,9 +20,19 @@ export default function TokenData() {
     set_patientId(e.target.value);
   }
 
+    // A function to handle the exam input change
+    const handleExamChange = (e) => {
+      set_exam(e.target.value);
+    }
+  
   // A function to handle the tokenID input change
   const handleDoseChange = (e) => {
     set_dose(e.target.value);
+  }
+
+  // A function to handle the tokenID input change
+  const handleTimeChange = (e) => {
+    set_time(e.target.value);
   }
 
   const handleSubmit = (e) => {
@@ -45,9 +57,23 @@ export default function TokenData() {
           />
           <input
             type="text" 
+            placeholder="Enter Exam Name" 
+            value={_exam} 
+            onChange={handleExamChange} 
+            className="my-4 text-center text-black p-2" 
+          />
+          <input
+            type="text" 
             placeholder="Enter Dose (mGy)" 
             value={_dose} 
             onChange={handleDoseChange} 
+            className="my-4 text-center text-black p-2" 
+          />
+          <input
+            type="text" 
+            placeholder="Enter time (epoch seconds)" 
+            value={_time} 
+            onChange={handleTimeChange} 
             className="my-4 text-center text-black p-2" 
           />
           <button type="submit" className="bg-white my-4 text-center text-black p-2">Submit</button>
@@ -56,7 +82,7 @@ export default function TokenData() {
       )}
 
       {isConnected && showRead ? (
-        <Write patientId={_patientId} patientDose={_dose}/>
+        <Write patientId={_patientId} exam={_exam} patientDose={_dose} time={_time}/>
       ) : (
         <ConnectButton />
       )}

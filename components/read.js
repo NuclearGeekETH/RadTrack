@@ -3,49 +3,55 @@ import { useContractRead, useAccount, useChainId } from 'wagmi'
 import ABI from "./abi.json";
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import CONFIG from "public/config.json"
+import { ethers } from "ethers";
 
 export default function ReadNFTContract(props) {
-  const { address, isConnected } = useAccount()
-  const [_contractAddress, set_contractAddress] = useState(CONFIG.contract_address);
-  const { data, isError, isLoading } = useContractRead({
-    address: _contractAddress,
-    abi: ABI,
-    functionName: 'getRecords',
-    args: [props.tokenID]
-    })
-  
-    // console.log(address)
-    // console.log(data)
-    // console.log(props.tokenID)
-  
-    const [bigNumbers, setBigNumbers] = useState([]);
+  const [records, setRecords] = useState([]); 
 
-    useEffect(() => {
-      if (data && Array.isArray(data) && data.length > 0 && !isLoading && !isError) {
-          // Flatten the array and map each item to its BigNumber string representation
-          const bigNumbersStrings = data.flat().map(bigNumber => {
-              // .toString() on BigNumber object to convert it to a readable string.
-              return bigNumber ? bigNumber.toString() : '';
+  useEffect(() => {
+    const fetchRecords = async () => {
+      try {
+        // create a provider
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        // create a contract instance
+        const contract = new ethers.Contract(CONFIG.contract_address, ABI, provider);
+        // get record count for a token
+        const recordCount = await contract.getRecordCount(props.tokenID);
+        const _records = [];
+
+        // loop through records, fetch each one and push to _records array
+        for(let i=0; i<recordCount; i++) {
+          const rec = await contract.records(props.tokenID, i);
+          _records.push({
+            exam: rec.exam,
+            dose: rec.dose.toString(),
+            time: new Date(rec.time.toNumber() * 1000).toString() // time needs to be converted from seconds to milliseconds
           });
-
-          setBigNumbers(bigNumbersStrings);
+        }
+        // update state
+        setRecords(_records);
+      } catch (error) {
+        // perform error handling as necessary
+        console.error("Error fetching records:", error);
       }
-    }, [data, isError, isLoading]);
+    }
+
+    fetchRecords();
+  }, [props.tokenID]);
 
   return (
     <div className="flex flex-col items-center justify-center">
-
-      {isConnected && data ? (
-          <div className="text-center mt-6 font-bold text-white">
-            The dose data for Patient ID {props.tokenID} is: {bigNumbers.join(', ')} (doses in mGy)
-          </div>
+      {records.length > 0 ? (
+          records.map((data, index) => (
+            <div key={index} className="text-center mt-6 font-bold text-white">
+              Patient ID {props.tokenID} had a {data.exam} with {data.dose} mGy of dose on {data.time}
+            </div>
+          ))
       ) : (
         <div className='text-center mt-6 font-bold text-cyan-950'>
-        <ConnectButton />
+          <ConnectButton />
         </div>
       )}
-      </div>
-
-  )
-};
-
+    </div>
+  );
+}
