@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import CONFIG from "public/config.json"
 
-
 export default function Footer() {
     const year = new Date().getFullYear();
     const [_contractAddress, set_contractAddress] = useState(CONFIG.contract_address);
