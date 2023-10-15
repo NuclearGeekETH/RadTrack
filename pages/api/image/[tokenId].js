@@ -1,6 +1,7 @@
 import { ethers } from 'ethers';
 import ABI from '../abi.json';
 import Jimp from 'jimp';
+import path from "path";
 
 export default async function handler(req, res) {
   const { tokenId } = req.query;
@@ -26,7 +27,11 @@ export default async function handler(req, res) {
   };
 
   const image = new Jimp(500, 500, 0xffffffff);
-  const font = await Jimp.loadFont(Jimp.FONT_SANS_32_BLACK); // use your desired font
+  // const plugin = require.resolve('@jimp/plugin-print');
+  // const jimpFont = path.resolve(plugin, '../../../fonts/open-sans/open-sans-32-black/open-sans-32-black.fnt');
+  // const font = await Jimp.loadFont(Jimp.FONT_SANS_32_BLACK); // use your desired font
+  const jimpFont = path.resolve(Jimp.FONT_SANS_32_BLACK);
+  const font = await Jimp.loadFont(jimpFont);
 
   image.print(font, 10, 10, baseJson.name);
   image.print(font, 10, 50, baseJson.description);
