@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import Mint from '../components/mint'
 import AddDose from '../components/addDose'
+import AddDoseERC from '../components/addDoseApeCoin'
 import DoseData from '../components/dosedata'
 import AdminLookup from '../components/adminData'
 import Head from 'next/head'
@@ -37,6 +38,9 @@ export default function Home() {
         </div>
         <div className='p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black md:w-1/2'>
         <AddDose />
+        </div>
+        <div className='p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black md:w-1/2'>
+        <AddDoseERC />
         </div>
         <div className='p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black md:w-1/2'>
         <DoseData />
