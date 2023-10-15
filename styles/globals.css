@@ -18,10 +18,35 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+/* styles.css or your CSS module */
+nav {
+  position: relative;
+}
+
+nav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  backdrop-filter: blur(15px);
+  /* Increased blur intensity */
+  background: rgba(0, 0, 0, 0.6);
+  transition: backdrop-filter 0.3s ease, background 0.3s ease;
+  /* Mask for the gradient fade-out */
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+}
+
+.nav-blur::before {
+  backdrop-filter: blur(15px);
+  /* Increased blur intensity */
+  background: linear-gradient(rgba(0, 0, 0, 0.6), transparent);
 }
