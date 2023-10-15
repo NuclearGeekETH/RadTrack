@@ -5,6 +5,7 @@ import {
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import Mint from "./mint_patient"
 import CONFIG from "public/config.json"
+import Link from "next/link";
 
 export default function TokenMint() {
   const [_contractAddress, set_contractAddress] = useState(CONFIG.contract_address);
@@ -18,7 +19,11 @@ export default function TokenMint() {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="text-center text-4xl font-bold pt-6 mb-6 text-white">Mint Patient</div>
+      <div className="text-center text-4xl font-bold pt-6 mb-6 text-white">
+        <Link href={"/add-patient"}>
+          Mint Patient
+        </Link>
+      </div>
 
       {isConnected && (
       <input

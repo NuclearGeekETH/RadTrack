@@ -1,7 +1,7 @@
 // components/About.js
 function About() {
   return (
-    <section className=" bg-[#0c162a] text-white py-20 px-4 md:px-0 z-10 w-full rounded-md mt-20 z-10">
+    <section className=" bg-[#0c162a] text-white py-20 px-4 md:px-0 z-10 w-full rounded-md mt-20">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-3xl md:text-5xl font-bold mb-8">
           Smart dosage tracking
