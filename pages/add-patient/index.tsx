@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Mint from '../../components/mint'
 import Nav from "../../components/nav";
+import Footer from "../../components/footer";
 
 
 const Home: NextPage = () => {
@@ -33,6 +34,9 @@ const Home: NextPage = () => {
 
         <div className='p-8 border-2 rounded-lg shadow bg-black'>
         <Mint />
+        </div>
+        <div className='fixed bottom-0 '>
+          <Footer />
         </div>
       </main>
 

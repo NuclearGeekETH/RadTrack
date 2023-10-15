@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Read from '../../components/dosedata'
 import Nav from "../../components/nav";
+import Footer from "../../components/footer";
 
 const Home: NextPage = () => {
   return (
@@ -31,6 +32,9 @@ const Home: NextPage = () => {
 
         <div className='p-8 border-2 rounded-lg shadow bg-black'>
         <Read />
+        </div>
+        <div className='fixed bottom-0 '>
+          <Footer />
         </div>
       </main>
 

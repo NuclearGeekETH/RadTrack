@@ -9,6 +9,7 @@ import Head from "next/head";
 import Nav from "../components/nav";
 import Hero from "../components/hero";
 import About from "../components/about";
+import Footer from "../components/footer"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -113,6 +114,9 @@ export default function Home() {
         </div>
         <div className="p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black bg-opacity-50 md:w-1/2 z-20">
           <AdminLookup />
+        </div>
+        <div className="z-20">
+          <Footer />
         </div>
       </main>
     </>
