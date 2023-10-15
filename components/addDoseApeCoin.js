@@ -42,7 +42,7 @@ export default function TokenData() {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="text-center text-4xl font-bold pt-6 mb-6 text-white">Add dose to patient using ApeCoin</div>
+      <div className="text-center  text-4xl font-bold pt-6 mb-6 text-white">Add dose to patient using ApeCoin</div>
 
       {isConnected && (
         
