@@ -5,6 +5,7 @@ import {
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import Read from "./read"
 import CONFIG from "public/config.json"
+import Link from "next/link";
 
 export default function TokenData() {
   const [_contractAddress, set_contractAddress] = useState(CONFIG.contract_address);
@@ -24,7 +25,11 @@ export default function TokenData() {
 
   return (
     <div className="flex flex-col items-center justify-center ">
-      <div className="text-center text-4xl font-bold pt-6 mb-6 text-white">Check Dose History</div>
+      <div className="text-center text-4xl font-bold pt-6 mb-6 text-white">
+        <Link href={"/dose-data"}>
+          Check Dose History
+        </Link>
+      </div>
 
       {isConnected && (
         

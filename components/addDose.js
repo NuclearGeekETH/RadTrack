@@ -5,6 +5,7 @@ import {
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import Write from "./addDoseWrite"
 import CONFIG from "public/config.json"
+import Link from "next/link";
 
 export default function TokenData() {
   const [_contractAddress, set_contractAddress] = useState(CONFIG.contract_address);
@@ -42,7 +43,11 @@ export default function TokenData() {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="text-center text-4xl font-bold pt-6 mb-6 text-white">Add dose to patient</div>
+      <div className="text-center text-4xl font-bold pt-6 mb-6 text-white">
+        <Link href={"/add-dose"}>
+          Add dose to patient
+          </Link>
+        </div>
 
       {isConnected && (
         

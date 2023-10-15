@@ -5,6 +5,7 @@ import {
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import Read from "./adminLookup"
 import CONFIG from "public/config.json"
+import Link from "next/link";
 
 export default function TokenData() {
   const [_contractAddress, set_contractAddress] = useState(CONFIG.contract_address);
@@ -24,7 +25,11 @@ export default function TokenData() {
 
   return (
     <div className="flex flex-col items-center justify-center ">
-      <div className="text-center text-4xl font-bold pt-6 mb-6 text-white">Check if wallet has Administrator rights</div>
+      <div className="text-center text-4xl font-bold pt-6 mb-6 text-white">
+        <Link href={"/admin-lookup"}>
+          Check if wallet has Administrator rights
+        </Link>  
+        </div>
 
       {isConnected && (
         
