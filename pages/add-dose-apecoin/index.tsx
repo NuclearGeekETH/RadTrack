@@ -1,6 +1,8 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import AddDose from '../../components/addDoseApeCoin'
+import Nav from "../../components/nav";
+
 
 const Home: NextPage = () => {
   return (
@@ -24,6 +26,10 @@ const Home: NextPage = () => {
       </Head>
 
       <main className='min-h-screen p-4 flex flex-1 flex-col justify-center items-center bg-[#0c162a]'>
+
+        <div className="flex flex-col fixed top-0 w-full z-20">
+          <Nav />
+        </div>
 
         <div className='p-8 border-2 rounded-lg shadow bg-black'>
         <AddDose />
