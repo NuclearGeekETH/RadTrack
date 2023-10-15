@@ -1,6 +1,6 @@
 import { ethers } from 'ethers';
 import ABI from '../abi.json';
-import { createCanvas, loadImage } from 'canvas';
+import Jimp from 'jimp';
 
 export default async function handler(req, res) {
   const { tokenId } = req.query;
@@ -25,23 +25,17 @@ export default async function handler(req, res) {
     }],
   };
 
-  const canvas = createCanvas(500, 500);
-  const context = canvas.getContext('2d');
+  const image = new Jimp(500, 500, 0xffffffff);
+  const font = await Jimp.loadFont(Jimp.FONT_SANS_32_BLACK); // use your desired font
 
-  // Set the font size and color
-  context.font = '30px Impact';
-  context.fillStyle = 'black';
+  image.print(font, 10, 10, baseJson.name);
+  image.print(font, 10, 50, baseJson.description);
+  image.print(font, 10, 90, baseJson.attributes[0].trait_type);
+  image.print(font, 10, 130, baseJson.attributes[0].value);
 
-  // Add text to the image
-  context.fillText(baseJson.name, 50, 50);
-  context.fillText(baseJson.description, 50, 100);
-  context.fillText(baseJson.attributes[0].trait_type, 50, 150);
-  context.fillText(baseJson.attributes[0].value, 50, 200);
+  const buffer = await image.getBufferAsync(Jimp.MIME_PNG);
 
-  // Convert the canvas to Buffer
-  const buffer = canvas.toBuffer('image/png');
-
-  // Set the content type to image
   res.setHeader('Content-Type', 'image/png');
   res.send(buffer);
+
 }
