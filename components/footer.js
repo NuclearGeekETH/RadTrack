@@ -11,7 +11,7 @@ export default function Footer() {
     return (
         <footer id="footer" className="py-8 flex flex-col md:flex-row md:items-center md:justify-between">
             <div className="mb-4 md:mb-0 md:pr-4">
-            <span className="white pr-4">© {year} <Link href="/">RadTrack</Link></span>
+            <span className="white">© {year} <Link href="/">RadTrack</Link></span>
             <a
                 href={`https://goerli.etherscan.io/address/${_contractAddress}`}
                 target="_blank"
