@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         <link href="/favicon.ico" rel="icon" />
       </Head>
 
-      <main className='min-h-screen p-4 flex flex-1 flex-col justify-center items-center bg-[#328ba8]'>
+      <main className='min-h-screen p-4 flex flex-1 flex-col justify-center items-center bg-[#0c162a]'>
 
         <div className='p-8 border-2 rounded-lg shadow bg-black'>
         <AddDose />
