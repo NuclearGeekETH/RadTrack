@@ -6,6 +6,7 @@ import AddDoseERC from '../components/addDoseApeCoin'
 import DoseData from '../components/dosedata'
 import AdminLookup from '../components/adminData'
 import Head from 'next/head'
+import Nav from '../components/nav'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -33,6 +34,9 @@ export default function Home() {
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 bg-[#328ba8] ${inter.className}`}
     >
+      <div className='flex flex-col fixed top-0 w-full z-10 p-4'>
+      <Nav />
+      </div>
         <div className='p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black md:w-1/2 '>
         <Mint />
         </div>
