@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import Link from "next/link";
 
 export default function Nav() {
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -27,7 +28,11 @@ export default function Nav() {
       }`}
     >
       {/* Logo */}
-      <span className="px-8 text-2xl font-bold">RadTrack</span>
+      <span className="px-8 text-2xl font-bold">
+      <Link href="/">
+        RadTrack
+        </Link>
+        </span>
       {/* Connect Wallet Button */}
       <div className="px-8">
         <ConnectButton />
