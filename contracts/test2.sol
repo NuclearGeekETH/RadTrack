@@ -6,8 +6,13 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
-contract PatientRecords is ERC721, Ownable, ReentrancyGuard, Pausable {
+contract RadTrack is ERC721, Ownable, ReentrancyGuard, Pausable {
+    using Strings for uint256;
+    using SafeMath for uint256;
+
     // Patient Record attributes
     struct Record {
         string exam;    // exam name
@@ -15,10 +20,14 @@ contract PatientRecords is ERC721, Ownable, ReentrancyGuard, Pausable {
         uint256 time; // time of exam in epoch seconds
     }
 
+    //  URI for TokenId
+    string public tokenBaseURI;
+
     // Fees
     uint256 public MINTING_FEE = 0.01 ether;
     uint256 public MODIFY_RECORD_FEE = 0.01 ether;
-    
+    uint256 public ERC_MODIFY_RECORED_FEE = 0.01 ether;
+
     // List of admins who can mint and modify records
     mapping(address => bool) private admins;
     
@@ -30,15 +39,12 @@ contract PatientRecords is ERC721, Ownable, ReentrancyGuard, Pausable {
 
     // ERC20 Address
     ERC20 public token = ERC20(0x328507DC29C95c170B56a1b3A758eB7a9E73455c);
-
-    // ERC20 Cost
-    uint256 public cost = 1;
-  
+ 
     // Events
     event RecordModified(uint256 indexed patientId, uint256 timestamp, string exam, uint256 dose, uint256 time);
 
     // Constructor
-    constructor() ERC721("PatientRecords", "PR") Ownable(msg.sender) {} 
+    constructor() ERC721("RadTrack", "RT") Ownable(msg.sender) {} 
 
     // Set Administrator to true or false
     function setAdmin(address account, bool value) public onlyOwner {
@@ -62,7 +68,7 @@ contract PatientRecords is ERC721, Ownable, ReentrancyGuard, Pausable {
 
     // Set ERC20 cost
     function setCost(uint256 _cost) public onlyOwner {
-        cost = _cost;
+        ERC_MODIFY_RECORED_FEE = _cost;
     }
 
     // Change modify record fee
@@ -96,13 +102,13 @@ contract PatientRecords is ERC721, Ownable, ReentrancyGuard, Pausable {
 
     // Add dose record to existing patient using ERC20 token
     function addDoseRecordERC(uint256 patientId, string memory exam, uint256 dose, uint256 time) external nonReentrant whenNotPaused {
-        require(token.balanceOf(msg.sender) >= cost, "Insufficient token balance");
+        require(token.balanceOf(msg.sender) >= ERC_MODIFY_RECORED_FEE, "Insufficient token balance");
         require(admins[msg.sender], "Only admins can add dose records");
         // Make sure the patientId exists before we try to add a dose.
         require(minted[patientId], "Invalid patientId");
         
         // Transfer the token to this contract as a payment
-        token.transferFrom(msg.sender, address(this), cost);
+        token.transferFrom(msg.sender, address(this), ERC_MODIFY_RECORED_FEE);
 
         // Add the dose to the patient's record.
         records[patientId].push(Record({exam: exam, dose: dose, time: time})); 
@@ -142,6 +148,18 @@ contract PatientRecords is ERC721, Ownable, ReentrancyGuard, Pausable {
         if (tokenBalance > 0) {
             require(token.transfer(owner(), tokenBalance), "Token transfer failed.");
         }
+    }
+
+    // Set URI
+    function setTokenBaseURI(string memory _baseURI) external onlyOwner {
+        tokenBaseURI = _baseURI;
+    }
+
+    // Read URI for TokenId
+    function tokenURI(uint256 _tokenId) override public view returns (string memory) {
+        require(minted[_tokenId], "ERC721Metadata: URI query for nonexistent token");
+
+        return string(abi.encodePacked(tokenBaseURI, _tokenId.toString()));
     }
 
     // Pause contract
