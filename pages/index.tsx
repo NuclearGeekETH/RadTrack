@@ -33,7 +33,7 @@ export default function Home() {
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 bg-[#328ba8] ${inter.className}`}
     >
-        <div className='p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black md:w-1/2'>
+        <div className='p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black md:w-1/2 '>
         <Mint />
         </div>
         <div className='p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black md:w-1/2'>

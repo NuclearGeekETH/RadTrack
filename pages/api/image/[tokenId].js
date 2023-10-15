@@ -17,7 +17,7 @@ export default async function handler(req, res) {
 
   const baseJson = {
     "name": `RadTrack Patient #${tokenId}`,
-    "description": "Dose storage.",
+    "description": "Dose storage on the blockchain.",
     "image": `https://rad-track.vercel.app/api/image/${tokenId}`,
     "attributes": [{
       "trait_type": "Patient Record Count",
@@ -25,10 +25,11 @@ export default async function handler(req, res) {
     }],
   };
 
-  const svgString = `<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500">
-    <text x="10" y="20">${baseJson.name}</text>
-    <text x="10" y="40">${baseJson.description}</text>
-    <text x="10" y="60">${baseJson.attributes[0].trait_type}: ${baseJson.attributes[0].value}</text>
+  const svgString = `<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500"> 
+    <rect width="100%" height="100%" fill="#328ba8" /> 
+    <text x="10" y="30" font-family="Verdana" font-size="25" fill="white">${baseJson.name}</text> 
+    <text x="10" y="60" font-family="Verdana" font-size="20" fill="white">${baseJson.description}</text> 
+    <text x="10" y="90" font-family="Verdana" font-size="15" fill="white">${baseJson.attributes[0].trait_type}: ${baseJson.attributes[0].value}</text> 
   </svg>`;
 
   // Convert SVG to PNG with Sharp
