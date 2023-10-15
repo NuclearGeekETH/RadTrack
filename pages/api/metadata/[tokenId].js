@@ -21,7 +21,7 @@ export default async function handler(req, res) {
   // build json response
   const baseJson = {
     "name": `RadTrack Patient #${tokenId}`,
-    "description": "Dose storage.",
+    "description": "Dose storage on the blockchain.",
     "image": `https://rad-track.vercel.app/api/image/${tokenId}`,
     "attributes": [{
       "trait_type": "Patient Record Count",
