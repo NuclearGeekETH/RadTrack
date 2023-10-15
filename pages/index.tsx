@@ -93,7 +93,7 @@ export default function Home() {
             height={1080}
           />
         </div>
-        <div className="flex flex-col fixed top-0 w-full z-20">
+        <div className="flex flex-col fixed top-0 w-full z-50">
           <Nav />
         </div>
 
