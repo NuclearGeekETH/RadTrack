@@ -100,19 +100,19 @@ export default function Home() {
         <Hero />
         <About />
 
-        <div className="p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black bg-opacity-40 w-full md:w-1/2 mt-20 z-20">
+        <div className="p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black bg-opacity-30 w-full md:w-1/2 mt-20 z-20">
           <Mint />
         </div>
-        <div className="p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black bg-opacity-40 w-full md:w-1/2 z-20">
+        <div className="p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black bg-opacity-30 w-full md:w-1/2 z-20">
           <AddDose />
         </div>
-        <div className="p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black bg-opacity-40 w-full md:w-1/2 z-20">
+        <div className="p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black bg-opacity-30 w-full md:w-1/2 z-20">
           <AddDoseERC />
         </div>
-        <div className="p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black bg-opacity-40 w-full md:w-1/2 z-20">
+        <div className="p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black bg-opacity-30 w-full md:w-1/2 z-20">
           <DoseData />
         </div>
-        <div className="p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black bg-opacity-40 w-full md:w-1/2 z-20">
+        <div className="p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black bg-opacity-30 w-full md:w-1/2 z-20">
           <AdminLookup />
         </div>
         <div className="pt-12 z-20">
