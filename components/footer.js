@@ -9,7 +9,7 @@ export default function Footer() {
 
     return (
         <footer id="footer" className="text-white py-8 flex flex-col md:flex-row md:items-center md:justify-between">
-            <div className="mb-4 md:mb-0 md:pr-4">
+            <div className="text-center mb-4 md:mb-0 md:pr-4">
             <span className="white">© {year} <Link href="/">RadTrack</Link></span>
             <a
                 href={`https://goerli.etherscan.io/address/${_contractAddress}`}
