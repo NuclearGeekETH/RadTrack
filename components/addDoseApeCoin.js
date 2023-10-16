@@ -92,7 +92,7 @@ export default function TokenData() {
         <ConnectButton />
       )}
 
-      <div className='pt-8'>
+      {/* <div className='pt-8'>
         <a
           href={`https://goerli.etherscan.io/address/${_contractAddress}`}
           target="_blank"
@@ -101,7 +101,7 @@ export default function TokenData() {
         >
           {_contractAddress}
         </a>
-      </div>
+      </div> */}
 
     </div>
   );

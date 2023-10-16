@@ -31,7 +31,7 @@ const Home: NextPage = () => {
           <Nav />
         </div>
 
-        <div className='p-8 border-2 rounded-lg shadow bg-black'>
+        <div className='p-8 border-2 rounded-lg shadow bg-black  md:w-1/3'>
         <Read />
         </div>
         <div className='fixed bottom-0 '>
