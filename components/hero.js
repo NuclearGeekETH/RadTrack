@@ -69,11 +69,10 @@ function Hero() {
           Welcome to RadTrack
         </h1>
         <p className="text-lg md:text-xl text-slate-400">
-          a state-of-the-art platform designed to track radiation doses across
-          facilities. Leveraging the power of modern technology, we provide
-          seamless integration and real-time monitoring to ensure safety and
-          compliance. Our mission is to revolutionize radiation tracking, making
-          it more efficient, accurate, and user-friendly.
+          A pioneering platform dedicated to the comprehensive tracking of radiation doses across multiple facilities. 
+          Equipped with an innovative interplay of modern tech, we deliver a seamless, real-time monitoring experience that 
+          focuses on safety and compliance. Our mission? To revolutionize the way radiation doses are tracked, rendering the 
+          process more streamlined, precise, and user-friendly.        
         </p>
       </div>
     </section>
