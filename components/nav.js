@@ -23,7 +23,7 @@ export default function Nav() {
 
   return (
     <nav
-      className={`fixed top-0 w-full py-4 flex justify-between items-center ease-out duration-300 ${
+      className={`text-white fixed top-0 w-full py-4 flex justify-between items-center ease-out duration-300 ${
         hasScrolled ? "nav-blur" : ""
       }`}
     >

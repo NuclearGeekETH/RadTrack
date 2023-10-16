@@ -8,7 +8,7 @@ export default function Footer() {
     const [_contractAddress, set_contractAddress] = useState(CONFIG.contract_address);
 
     return (
-        <footer id="footer" className="py-8 flex flex-col md:flex-row md:items-center md:justify-between">
+        <footer id="footer" className="text-white py-8 flex flex-col md:flex-row md:items-center md:justify-between">
             <div className="mb-4 md:mb-0 md:pr-4">
             <span className="white">© {year} <Link href="/">RadTrack</Link></span>
             <a
