@@ -14,7 +14,7 @@ Each patient is represented by an NFT, which will store a history of their radia
 
 We believe in privacy; hence, each patient is assigned an anonymous yet distinguishable identifier. All patient information is stored in an open-source smart contract, accessible by the administrators, i.e., the hospitals. Compliance with complex regulations and systems is made accessible and simplified, increasing the chances of our system’s widespread adoption.
 
-Moreover, we integrated an additional feature to allow for the tabulation of radiation dose statistics onto patients’ NFTs using ApeCoin, providing added flexibility.
+Moreover, we integrated an additional feature to allow for the adding of radiation dose data onto patients’ NFTs using ApeCoin, providing added flexibility.
 
 # Features
 
