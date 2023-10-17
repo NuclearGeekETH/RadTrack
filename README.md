@@ -37,7 +37,7 @@ Moreover, we integrated an additional feature to allow for the tabulation of rad
 
 # Technical Stack
 
-We use Next.js to handle both front-end and back-end elements. Our deployed smart contract employs Solidity, and it resides in the Goerli Ethereum testnet. The contract integrates a trial version of ApeCoin to carry out payments. We host our project on Vercel.
+We use Next.js to handle both front-end and back-end elements. Our deployed smart contract employs Solidity, and it resides in the Goerli Ethereum testnet. The contract integrates a test version of ApeCoin to carry out payments. We host our project on Vercel.
 
 # Contributors
 
