@@ -8,7 +8,7 @@ We’re introducing a novel and modern solution to a pressing issue in the radio
 
 ## Our Solution
 
-Our notable solution to this problem is to assign each hospital with the role of an administrator. This enables automatic creation of patient NFTs and tracking of their accumulated individual radiation doses, all integrated into the hospital record systems using standardized protocols like HL7. The monitoring process is facilitated by a web application, primarily focusing on events associated with the inducted patients’ status.
+Our notable solution to this problem is to assign a wallet to each hospital with the role of an administrator. This enables creation of patient NFTs and tracking of their accumulated individual radiation doses. If integrated with hospital record systems then we can leverage standardized communication protocols like HL7. For the project the smart contract is facilitated by a web application, allowing manual entry of patient data. In a full implementation this would all be automated.
 
 Each patient is represented by an NFT, which will store a history of their radiation dose intake. It allows the creation of a universally accessible and permanent record, assisting doctors and healthcare professionals to make informed decisions.
 
