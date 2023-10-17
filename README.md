@@ -1,6 +1,6 @@
 # ETHOnline2023 Project: RadTrack
 
-# ☢ Alert: Approaching Radiation Dose Limits! ☢
+## ☢ Alert: Approaching Radiation Dose Limits! ☢
 
 ## Introduction
 
