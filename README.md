@@ -45,7 +45,7 @@ NuclearGeek (Shawn Pickett), a radiation safety expert and now a full-stack deve
 
 # Future Scope
 
-While the web application offers effective engagement with the smart contract, extending its use in hospital EMR systems would envisage automatic contract entries, facilitating comprehensive and effortless tracking of radiation doses.
+While the web application offers simple integration with the smart contract, extending its use in hospital EMR systems would include automated contract entries, facilitating comprehensive and effortless tracking of radiation doses.
 
 # Connect and Contribute
 
