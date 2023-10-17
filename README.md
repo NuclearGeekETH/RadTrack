@@ -1,40 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ETHOnline2023 Project: RadTrack
 
-## Getting Started
+☢ Alert: Approaching Radiation Dose Limits! ☢
 
-First, run the development server:
+## Introduction
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+We’re introducing a novel and modern solution to a pressing issue in the radiology industry - cross-facility radiation dose accumulation. The industry has been struggling with the lack of a mechanism to monitor radiation doses received by patients or employees at independent facilities. Despite radiation dose tracking being overseen by private companies, the data is siloed within individual facilities. Thus, no universal dose tracking standard has been universally adopted.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Our Solution
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Our notable solution to this problem is to assign each hospital with the role of an administrator. This enables automatic creation of patient NFTs and tracking of their accumulated individual radiation doses, all integrated into the hospital record systems using standardized protocols like HL7. The monitoring process is facilitated by a web application, primarily focusing on events associated with the inducted patients’ status.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Each patient is represented by an NFT, which will store a history of their radiation dose intake. It allows the creation of a universally accessible and permanent record, assisting doctors and healthcare professionals to make informed decisions.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+We believe in privacy; hence, each patient is assigned an anonymous yet distinguishable identifier. All patient information is stored in an open-source smart contract, accessible by the administrators, i.e., the hospitals. Compliance with complex regulations and systems is made accessible and simplified, increasing the chances of our system’s widespread adoption.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Moreover, we integrated an additional feature to allow for the tabulation of radiation dose statistics onto patients’ NFTs using ApeCoin, providing added flexibility.
 
-## Learn More
+# Features
 
-To learn more about Next.js, take a look at the following resources:
+## Website
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Main Page - Grants access to the full suite of features](https://rad-track.vercel.app/)
+- [Create Patient - Exclusively for admin, enabling minting of new patients using Ethereum](https://rad-track.vercel.app/add-patient)
+- [Add Radiation Dose - Admin-only feature allowing dose addition using Ethereum](https://rad-track.vercel.app/add-dose)
+- [Add Radiation Dose using ApeCoin - An added feature for admins for payment flexibility](https://rad-track.vercel.app/add-dose-apecoin)
+- [Lookup Radiation Dose - Public features allowing users to review the radiation dose history of patients](https://rad-track.vercel.app/dose-data)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## API End Points
 
-## Deploy on Vercel
+- [Get patient metadata - Renders patient metadata dynamically using web3 contract calls](https://rad-track.vercel.app/api/metadata/69)
+- [Get patient image - dynamic image rendering with patient data using web3 contract calls](https://rad-track.vercel.app/api/image/69)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## OpenSea Integration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Each patient is represented as an NFT displaying the number of exams undertaken.](https://testnets.opensea.io/assets/goerli/0xb6a95bdda72324cac2fd84f0732eb1fe6006c383/69)
+
+# Technical Stack
+
+We use Next.js to handle both front-end and back-end elements. Our deployed smart contract employs Solidity, and it resides in the Goerli Ethereum testnet. The contract integrates a trial version of ApeCoin to carry out payments. We host our project on Vercel.
+
+# Contributors
+
+NuclearGeek (Shawn Pickett), a radiation safety expert and now a full-stack developer, managed our back-end development and set the foundation for the front-end. MzLady, a highly skilled professional in both front-end and back-end programming, supervised UI/UX enhancements throughout the development.
+
+# Future Scope
+
+While the web application offers effective engagement with the smart contract, extending its use in hospital EMR systems would envisage automatic contract entries, facilitating comprehensive and effortless tracking of radiation doses.
+
+# Connect and Contribute
+
+If you wish to contribute or want us to implement our solution tailored to your specific needs, please don’t hesitate to connect with us. We are excited about working together, making radiation tracking more transparent, accessible, and universal.
+
+# Build the future with us! ☢
