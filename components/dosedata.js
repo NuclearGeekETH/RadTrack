@@ -48,7 +48,7 @@ export default function TokenData() {
         <Read tokenID={_tokenID}/>
       ) : (
         <div className="text-white mt-4">
-          Enter Patient ID and hit Submit to get started
+          Enter Patient ID and hit Submit to get started (Try patient #69 as an example)
         </div>
       )}
 

@@ -75,8 +75,8 @@ export default function ReadNFTContract(props) {
           </table>
         </div>
       ) : (
-        <div className='text-center mt-6 font-bold text-green-800'>
-          Enter Patient ID to get started
+        <div className="text-white mt-4">
+          Enter Patient ID and hit Submit to get started (Try patient #69 as an example)
         </div>
       )}
     </div>

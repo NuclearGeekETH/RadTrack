@@ -32,7 +32,7 @@ const Home: NextPage = () => {
           <Nav />
         </div>
 
-        <div className='p-8 border-2 rounded-lg shadow bg-black md:w-1/3'>
+        <div className='p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black bg-opacity-30 w-full md:w-1/2 z-20'>
         <Mint />
         </div>
         <div className='fixed bottom-0 '>
