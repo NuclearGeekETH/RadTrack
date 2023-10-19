@@ -25,7 +25,6 @@ export default function TokenMint() {
         </Link>
       </div>
 
-      {isConnected && (
       <input
         type="text" 
         placeholder="Enter Patient ID" 
@@ -33,25 +32,12 @@ export default function TokenMint() {
         onChange={handleTokenIDChange} 
         className="my-4 text-center text-black p-2" 
       />
-      )}
 
       {isConnected && _tokenID ? (
         <Mint tokenID={_tokenID}/>
       ) : (
         <ConnectButton />
       )}
-
-      {/* <div className='pt-8'>
-        <a
-          href={`https://goerli.etherscan.io/address/${_contractAddress}`}
-          target="_blank"
-          rel="noreferrer"
-          className="text-sm text-white hover:text-blue-700"
-        >
-          {_contractAddress}
-        </a>
-      </div> */}
-
     </div>
   );
 }

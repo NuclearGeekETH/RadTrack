@@ -41,16 +41,14 @@ export default function TokenData() {
           </Link>
         </div>
 
-        {isConnected && (
         <form className="flex flex-col" onSubmit={handleSubmit}>
           <input type="text" placeholder="Enter Patient ID" value={_patientId} onChange={handlePatientIDChange} className="my-4 text-center text-black p-2" />
           <input type="text" placeholder="Enter Exam Name" value={_exam} onChange={handleExamChange} className="my-4 text-center text-black p-2" />
           <input type="text" placeholder="Enter Dose (mGy)" value={_dose} onChange={handleDoseChange} className="my-4 text-center text-black p-2" />
           <input type="date" placeholder="Enter Date" value={_date} onChange={handleDateChange} className="my-4 text-center text-black p-2" />
           <input type="time" placeholder="Enter Time" value={_time} onChange={handleTimeChange} className="my-4 text-center text-black p-2" />
-          <button type="submit" className="bg-white my-4 text-center text-black p-2">Submit</button>
+          <div className="flex flex-col items-center justify-center">{isConnected ? (<button type="submit" className="bg-white my-4 text-center text-black p-2">Submit</button>) : (<div className="text-white mt-4 mb-8">Connect wallet to add dose</div>)}</div>
         </form>
-      )}
       {isConnected && showRead ? (
         <div className="flex flex-col">
           <div className="pb-4">
@@ -59,7 +57,7 @@ export default function TokenData() {
             <WriteApe patientId={_patientId} exam={_exam} patientDose={_dose} time={_epochSeconds} />
         </div>
         ) : (
-        <ConnectButton />
+          <ConnectButton />
       )}
     </div>
   );
