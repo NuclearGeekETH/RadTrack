@@ -1,19 +1,16 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import Mint from "../components/mint";
-import AddDose from "../components/addDose";
-import AddDoseERC from "../components/addDoseApeCoin";
-import DoseData from "../components/dosedata";
-import AdminLookup from "../components/adminData";
 import Head from "next/head";
 import Nav from "../components/nav";
 import Hero from "../components/hero";
 import About from "../components/about";
 import Footer from "../components/footer"
+import Portal from "../components/portal"
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+
   return (
     <>
       <Head>
@@ -99,22 +96,8 @@ export default function Home() {
 
         <Hero />
         <About />
+        <Portal />
 
-        <div className="p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black bg-opacity-30 w-full md:w-1/2 mt-20 z-20">
-          <Mint />
-        </div>
-        <div className="p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black bg-opacity-30 w-full md:w-1/2 z-20">
-          <AddDose />
-        </div>
-        {/* <div className="p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black bg-opacity-30 w-full md:w-1/2 z-20">
-          <AddDoseERC />
-        </div> */}
-        <div className="p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black bg-opacity-30 w-full md:w-1/2 z-20">
-          <DoseData />
-        </div>
-        <div className="p-8 mb-6 px-4 border-2 rounded-lg shadow bg-black bg-opacity-30 w-full md:w-1/2 z-20">
-          <AdminLookup />
-        </div>
         <div className="pt-12 z-20">
           <Footer />
         </div>
