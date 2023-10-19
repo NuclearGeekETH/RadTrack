@@ -5,6 +5,7 @@ import {
 import Read from "./read"
 import CONFIG from "public/config.json"
 import Link from "next/link";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export default function TokenData() {
   const [_contractAddress, set_contractAddress] = useState(CONFIG.contract_address);
@@ -40,7 +41,7 @@ export default function TokenData() {
             onChange={handleTokenIDChange} 
             className="my-4 text-center text-black p-2" 
           />
-          <button type="submit" className="bg-white my-4 text-center text-black p-2">Submit</button>
+          {isConnected ? (<button type="submit" className="bg-white my-4 text-center text-black p-2">Submit</button>) : (<ConnectButton />)}
           </div>
         </form>
 
