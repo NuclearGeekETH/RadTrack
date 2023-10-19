@@ -23,13 +23,13 @@ export default function ReadNFTContract(props) {
   return (
     <div className="flex flex-col items-center justify-center">
 
-      {isConnected && isAdmin !== undefined ? (
+      { isAdmin !== undefined ? (
           <div className="text-center mt-6 font-bold text-white">
             Address {props.address} has admin rights: {isAdmin ? 'Yes' : 'No'} 
           </div>
       ) : (
-        <div className='text-center mt-6 font-bold text-cyan-950'>
-        <ConnectButton />
+        <div className="text-white mt-4">
+          Enter wallet address and hit Submit to see if wallet has admin rights
         </div>
       )}
       </div>

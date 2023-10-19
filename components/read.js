@@ -76,7 +76,7 @@ export default function ReadNFTContract(props) {
         </div>
       ) : (
         <div className='text-center mt-6 font-bold text-green-800'>
-          <ConnectButton />
+          Enter Patient ID to get started
         </div>
       )}
     </div>

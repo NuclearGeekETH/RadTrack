@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   useAccount,
 } from 'wagmi';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
 import Read from "./read"
 import CONFIG from "public/config.json"
 import Link from "next/link";
@@ -31,7 +30,6 @@ export default function TokenData() {
         </Link>
       </div>
 
-      {isConnected && (
         
         <form onSubmit={handleSubmit}>
         <div className="flex flex-col items-center justify-center w-64">
@@ -45,25 +43,15 @@ export default function TokenData() {
           <button type="submit" className="bg-white my-4 text-center text-black p-2">Submit</button>
           </div>
         </form>
-      )}
 
-      {isConnected && showRead ? (
+      {showRead ? (
         <Read tokenID={_tokenID}/>
       ) : (
-        <ConnectButton />
+        <div className="text-white mt-4">
+          Enter Patient ID and hit Submit to get started
+        </div>
       )}
 
-      {/* <div className='pt-8'>
-        <a
-          href={`https://goerli.etherscan.io/address/${_contractAddress}`}
-          target="_blank"
-          rel="noreferrer"
-          className="text-sm text-white hover:text-blue-700"
-        >
-          {_contractAddress}
-        </a>
-      </div>
- */}
     </div>
   );
 }
