@@ -42,7 +42,7 @@ export default function TokenMint(props) {
           onClick={() => write()}
           className="bg-white text-black font-bold py-2 px-4 rounded-md hover:scale-105 hover:bg-[#005d46] focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-75 transition-all duration-500 ease-out"
         >
-          {isLoading ? 'Writing...' : 'Add Dose'}
+          {isLoading ? 'Writing...' : 'Add Dose using ApeCoin'}
         </button>
       ) : (
         <ConnectButton />

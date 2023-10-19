@@ -4,6 +4,7 @@ import {
 } from 'wagmi';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import Write from "./addDoseWrite"
+import WriteApe from "./addDoseWriteApeCoin"
 import CONFIG from "public/config.json"
 import Link from "next/link";
 
@@ -36,7 +37,7 @@ export default function TokenData() {
     <div className="flex flex-col items-center justify-center">
       <div className="text-center text-4xl font-bold pt-6 mb-6 text-white">
         <Link href={"/add-dose"}>
-          Add dose to patient
+          Add dose to patient using Ethereum or ApeCoin
           </Link>
         </div>
 
@@ -51,8 +52,13 @@ export default function TokenData() {
         </form>
       )}
       {isConnected && showRead ? (
-        <Write patientId={_patientId} exam={_exam} patientDose={_dose} time={_epochSeconds}/>
-      ) : (
+        <div className="flex flex-col">
+          <div className="pb-4">
+            <Write patientId={_patientId} exam={_exam} patientDose={_dose} time={_epochSeconds} />
+          </div>
+            <WriteApe patientId={_patientId} exam={_exam} patientDose={_dose} time={_epochSeconds} />
+        </div>
+        ) : (
         <ConnectButton />
       )}
     </div>
