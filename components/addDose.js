@@ -13,32 +13,23 @@ export default function TokenData() {
   const [ _patientId, set_patientId ] = useState('');
   const [ _dose, set_dose ] = useState('');
   const [ _exam, set_exam ] = useState('');
+  const [ _date, set_date ] = useState('');
   const [ _time, set_time ] = useState('');
+  const [ _epochSeconds, set_epochSeconds ] = useState(0)
   const [ showRead, setShowRead ] = useState(false); // added state for controlling display of Read component
 
-  // A function to handle the tokenID input change
-  const handlePatientIDChange = (e) => {
-    set_patientId(e.target.value);
-  }
-
-    // A function to handle the exam input change
-    const handleExamChange = (e) => {
-      set_exam(e.target.value);
-    }
-  
-  // A function to handle the tokenID input change
-  const handleDoseChange = (e) => {
-    set_dose(e.target.value);
-  }
-
-  // A function to handle the tokenID input change
-  const handleTimeChange = (e) => {
-    set_time(e.target.value);
-  }
+  const handlePatientIDChange = (e) => { set_patientId(e.target.value); }
+  const handleExamChange = (e) => { set_exam(e.target.value); }
+  const handleDoseChange = (e) => { set_dose(e.target.value); }
+  const handleDateChange = (e) => { set_date(e.target.value); }
+  const handleTimeChange = (e) => { set_time(e.target.value); }
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // stopping form direct submission
-    setShowRead(true); // showing Read component on clicking button
+    e.preventDefault();
+    const epochSeconds = new Date(`${_date}T${_time}`).getTime() / 1000;
+    console.log(epochSeconds)
+    set_epochSeconds(epochSeconds);
+    setShowRead(true);
   }
 
   return (
@@ -49,60 +40,21 @@ export default function TokenData() {
           </Link>
         </div>
 
-      {isConnected && (
-        
-        <form onSubmit={handleSubmit}>
-        <div className="flex flex-col items-center justify-center">
-        <input
-            type="text" 
-            placeholder="Enter Patient ID" 
-            value={_patientId} 
-            onChange={handlePatientIDChange} 
-            className="my-4 text-center text-black p-2"
-          />
-          <input
-            type="text" 
-            placeholder="Enter Exam Name" 
-            value={_exam} 
-            onChange={handleExamChange} 
-            className="my-4 text-center text-black p-2" 
-          />
-          <input
-            type="text" 
-            placeholder="Enter Dose (mGy)" 
-            value={_dose} 
-            onChange={handleDoseChange} 
-            className="my-4 text-center text-black p-2" 
-          />
-          <input
-            type="text" 
-            placeholder="Enter time (epoch seconds)" 
-            value={_time} 
-            onChange={handleTimeChange} 
-            className="my-4 text-center text-black p-2" 
-          />
+        {isConnected && (
+        <form className="flex flex-col" onSubmit={handleSubmit}>
+          <input type="text" placeholder="Enter Patient ID" value={_patientId} onChange={handlePatientIDChange} className="my-4 text-center text-black p-2" />
+          <input type="text" placeholder="Enter Exam Name" value={_exam} onChange={handleExamChange} className="my-4 text-center text-black p-2" />
+          <input type="text" placeholder="Enter Dose (mGy)" value={_dose} onChange={handleDoseChange} className="my-4 text-center text-black p-2" />
+          <input type="date" placeholder="Enter Date" value={_date} onChange={handleDateChange} className="my-4 text-center text-black p-2" />
+          <input type="time" placeholder="Enter Time" value={_time} onChange={handleTimeChange} className="my-4 text-center text-black p-2" />
           <button type="submit" className="bg-white my-4 text-center text-black p-2">Submit</button>
-          </div>
         </form>
       )}
-
       {isConnected && showRead ? (
-        <Write patientId={_patientId} exam={_exam} patientDose={_dose} time={_time}/>
+        <Write patientId={_patientId} exam={_exam} patientDose={_dose} time={_epochSeconds}/>
       ) : (
         <ConnectButton />
       )}
-
-      {/* <div className='pt-8'>
-        <a
-          href={`https://goerli.etherscan.io/address/${_contractAddress}`}
-          target="_blank"
-          rel="noreferrer"
-          className="text-sm text-white hover:text-blue-700"
-        >
-          {_contractAddress}
-        </a>
-      </div> */}
-
     </div>
   );
 }
