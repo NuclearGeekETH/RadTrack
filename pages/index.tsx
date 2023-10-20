@@ -59,7 +59,7 @@ export default function Home() {
       </Head>
 
       <main
-        className={`relative flex min-h-screen flex-col items-center justify-between py-24 bg-[#0A1120] ${inter.className}`}
+        className={`relative flex min-h-screen flex-col items-center justify-between pt-24 bg-[#0A1120] ${inter.className}`}
       >
         <svg
           className="absolute top-0 left-0 w-full h-full"
