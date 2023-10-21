@@ -17,13 +17,13 @@ export default function Home() {
         <title>RadTrack</title>
         <meta
           name="description"
-          content="Track radiation dose across facilities"
+          content="Track radiation dose across facilities using blockchain"
         />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta property="og:title" content=">RadTrack" key="title" />
         <meta
           property="og:description"
-          content="Track radiation dose across facilities"
+          content="Track radiation dose across facilities using blockchain"
           key="description"
         />
         <meta
@@ -90,13 +90,28 @@ export default function Home() {
             height={1080}
           />
         </div>
-        <div className="flex flex-col fixed top-0 w-full z-50">
+        <div className="flex flex-col fixed top-0 w-full z-20">
           <Nav />
         </div>
 
         <Hero />
         <About />
         <Portal />
+        {/* Instructional Video */}
+        <div className="mb-10 rounded-lg shadow-lg p-4 md:p-8 z-20">
+          <div className="flex justify-center">
+            <div className="aspect-w-16 aspect-h-9 w-full md:max-w-2xl">
+              <video 
+                controls 
+                className="w-full h-full"
+                src="/Rad_Track.mp4"
+              />
+            </div>
+          </div>
+          <p className="text-lg text-white mt-4">
+            The video above provides a detailed demonstration on how to navigate and utilize our website efficiently.
+          </p>
+        </div>
 
         <div className="pt-12 z-20">
           <Footer />
